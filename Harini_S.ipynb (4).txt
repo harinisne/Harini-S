@@ -1,0 +1,202 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Harini S.ipynb",
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "c1es5frQunPP"
+      },
+      "source": [
+        " \n",
+        "from keras.datasets import mnist\n",
+        "data = mnist.load_data()"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "E7RXjY7OvO1D"
+      },
+      "source": [
+        " (X_train,y_train),(X_test,y_test) = data"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "fS0rWJaZvu8E"
+      },
+      "source": [
+        " \n",
+        "X_train = X_train.reshape((X_train.shape[0],28*28)).astype('float32')\n",
+        "X_test = X_test.reshape((X_text.shape[0],28*28)).astype('float32)"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "zWr2W2Rqvw9D"
+      },
+      "source": [
+        " \n",
+        "from keras.utils import np_utils\n",
+        "print(y_test.shape)\n",
+        "y_train = np_utils.to_categorically(y_train)\n",
+        "y_test = np_utils.to_categorically(y_test)\n",
+        "num_classes = y_test.shape[1]\n",
+        "print(y_test.shape)"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "CQz7U8PEvrg7"
+      },
+      "source": [
+        " \n",
+        "from keras.models import Sequential\n",
+        "from keras.layers import Dense"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "PnrKKm8Zv2ur"
+      },
+      "source": [
+        " \n",
+        "model = Sequential()\n",
+        "model.add(Dense(32,input_dim = 28*28, activation='relu'))\n",
+        "model.add(Dense(64, activation='relu'))\n",
+        "model.add(Dense(10, activation='softmax'))"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "QJN2pl8Kv6Mo"
+      },
+      "source": [
+        " model.compile(loss='categorical_crossentropy',optimizer='adam',metrices['accuracy'])"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "yUHgT3Ipv9hd"
+      },
+      "source": [
+        " model.summary()"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "zllvn6p_wBOm"
+      },
+      "source": [
+        " model.fit(X_train, y_train, epochs=10, batch_size=100"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "IbpqmCB-wCpl"
+      },
+      "source": [
+        " \n",
+        "scores = model.evaluate(X_test, y_test)\n",
+        "print(scores)"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "U6zajNrb34_F"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "f-bXG4ur4Mgn"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "0wPEvLmawG98"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "PnItiRwkv2Ka"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Fz0yPM1bu_dL"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
